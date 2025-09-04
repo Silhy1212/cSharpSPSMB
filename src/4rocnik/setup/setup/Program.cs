@@ -6,9 +6,11 @@ namespace setup
     {
         public static void Main(string[] args)
         {
-            for (int i = 1; i <= 100; i++)
+            GuessNum guessNum = new GuessNum(1, 2);
+            guessNum.RandNum();
+            while (!guessNum.guessedNum)
             {
-                FizzBuzz(i);
+                
             }
         }
 
@@ -30,6 +32,13 @@ namespace setup
             {
                 Console.WriteLine(num);
             }
+        }
+
+        public static void Inputnum()
+        {
+            string number = Console.ReadLine();
+            
+            
         }
     }
 }
