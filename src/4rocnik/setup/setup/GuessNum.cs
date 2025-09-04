@@ -22,5 +22,12 @@ namespace setup
             int num= random.Next(min,max);
             return num;
         }
+        public string  Inputnum()
+        {
+            Console.WriteLine("Enter a number:");
+            string number = Console.ReadLine();
+            return number;
+            
+        }
     }
 }

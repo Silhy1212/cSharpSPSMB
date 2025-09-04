@@ -6,11 +6,23 @@ namespace setup
     {
         public static void Main(string[] args)
         {
-            GuessNum guessNum = new GuessNum(1, 2);
-            guessNum.RandNum();
+            GuessNum guessNum = new GuessNum(1, 100);
+            int randomNum = guessNum.RandNum();
+            string RandomNum = randomNum.ToString();
             while (!guessNum.guessedNum)
             {
-                
+                string guessesNumber =guessNum.Inputnum();
+                if (guessesNumber == RandomNum)
+                {
+                    Console.WriteLine("You win!");
+                    Console.WriteLine("You guessed correctly!");
+                    guessNum.guessedNum = true;
+                }
+                else
+                {
+                    Console.WriteLine("You lose!");
+                    Console.WriteLine("You guessed the wrong number!");
+                }
             }
         }
 
@@ -34,11 +46,6 @@ namespace setup
             }
         }
 
-        public static void Inputnum()
-        {
-            string number = Console.ReadLine();
-            
-            
-        }
+        
     }
 }
