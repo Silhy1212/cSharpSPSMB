@@ -32,5 +32,17 @@ namespace Files
             
             return Film + ", " + Genre + ", " + LeadStudio + ", " + AudienceScore + ", " + Profitability + ", " + RottenTomatoes + ", " + WorldWideGros + ", " + Year;
         }
+
+        public string GetTomatoRating()
+        {
+            return RottenTomatoes;
+        }
+
+        public string GetYear()
+        {
+            return Year;
+        }
+
+        
     }
 }
