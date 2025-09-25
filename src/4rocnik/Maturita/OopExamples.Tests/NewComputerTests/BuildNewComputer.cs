@@ -9,8 +9,8 @@ public class BuildNewComputer : NewComputerTests
     {
         var computer = Builder
             .AddMotherBoard(ComputerConfiguration.MotherBoard)
-            .AddCPU(ComputerConfiguration.Cpu)
-            .AddGPU(ComputerConfiguration.Gpu)
+            .AddCpu(ComputerConfiguration.Cpu)
+            .AddGpu(ComputerConfiguration.Gpu)
             .AddRam(ComputerConfiguration.Ram)
             .AddPowerSupply(ComputerConfiguration.PowerSupply)
             .AddCase(ComputerConfiguration.Case)
