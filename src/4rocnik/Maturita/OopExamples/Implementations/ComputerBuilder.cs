@@ -1,4 +1,5 @@
 ﻿using OopExamples.Interfaces;
+using OopExamples.Interfaces.Exceptions;
 
 namespace OopExamples.Implementations;
 
@@ -55,8 +56,14 @@ public class ComputerBuilder : IComputerBuilder
 
     public IComputer Build()
     {
+        
+        if(_motherBoard == null || _cpu == null || _gpu == null || _powerSupply == null ||_ram == null){
+            throw new ComputerMissingComponentsException();
+        }
         return new Computer()
         {
+            
+            
             MotherBoard = _motherBoard,
             Cpu = _cpu,
             Gpu = _gpu,

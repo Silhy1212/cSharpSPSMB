@@ -1,5 +1,6 @@
 using OopExamples.Implementations;
 using OopExamples.Interfaces;
+using Monitor = OopExamples.Implementations.Monitor;
 
 namespace OopExamples.Tests;
 
@@ -10,21 +11,50 @@ public class NewComputerTests
     protected readonly IComputerBuilder Builder;
     protected readonly IPerson Person;
     protected readonly ICompany Company;
+    protected readonly IEnumerable<IMonitor> Monitors;
+
+    private readonly List<GPUConnector> MonitorConnectors = new List<GPUConnector>()
+    {
+        GPUConnector.AVG,
+        GPUConnector.AVG,
+        GPUConnector.DVI,
+        GPUConnector.HDMI,
+    };
 
     public NewComputerTests()
     {
-        // tests
+        // testsdsadsa
         // Create instance of interfaces, using your implementation
         ComputerConfiguration = new ComputerConfiguration();
         Builder = new ComputerBuilder();
+        //Computer = Builder.BuildFromConfiguration(ComputerConfiguration);
         Computer = new Computer();
-        Person = new  Person();
+        Person = new Person();
         Company = new Company();
-        
+        Monitors = MonitorConnectors.Select<GPUConnector, IMonitor>(connector =>
+            new Monitor("name", connector)
+        );
+
         // Do not touch this
         Computer = Computer ?? throw new System.NotImplementedException($"{nameof(Computer)} not implemented");
         Person = Person ?? throw new System.NotImplementedException($"{nameof(Person)} not implemented");
         Company = Company ?? throw new System.NotImplementedException($"{nameof(Company)} not implemented");
+    }
+
+    [Fact]
+    public void IsValidSetup()
+    {
+        Assert.NotNull(ComputerConfiguration);
+        Assert.NotNull(Builder);
+        Assert.NotNull(Computer);
+        Assert.NotNull(Person);
+        Assert.NotNull(Company);
+        Assert.NotNull(Monitors);
+
+        Assert.NotEmpty(Monitors);
+        Assert.Equal(MonitorConnectors.Count(), Monitors.Count());
+        Assert.All(Monitors, monitor =>
+            Assert.Contains(monitor.Connector, MonitorConnectors));
     }
 
     protected void IsValidComputer(IComputer computer)
