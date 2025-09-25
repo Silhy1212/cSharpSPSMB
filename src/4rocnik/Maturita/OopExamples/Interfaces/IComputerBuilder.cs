@@ -4,8 +4,8 @@ public interface IComputerBuilder
 {
     IComputer BuildFromConfiguration(IComputerConfiguration configuration);
     IComputerBuilder AddMotherBoard(IMotherBoard motherBoard);
-    IComputerBuilder AddCPU(ICPU cpu);
-    IComputerBuilder AddGPU(IGPU gpu);
+    IComputerBuilder AddCpu(ICPU cpu);
+    IComputerBuilder AddGpu(IGPU gpu);
     IComputerBuilder AddRam(IRAM ram);
     IComputerBuilder AddPowerSupply(IPowerSupply powerSupply);
     IComputerBuilder AddCase(ICase pcCase);
